@@ -1,6 +1,8 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+
 plugins {
+    id("com.github.johnrengelman.shadow") version "8.1.1"
     kotlin("jvm") version "1.9.23"
-    kotlin("plugin.serialization") version "1.9.0"
 }
 
 group = "world.estaria"
@@ -14,12 +16,16 @@ repositories {
 }
 
 dependencies {
-    compileOnly(kotlin("stdlib"))
+    api(kotlin("stdlib"))
 
     // paper dependencies
-    compileOnly("io.papermc.paper:paper-api:1.21.0-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.21-R0.1-SNAPSHOT")
 }
 
 tasks.test {
     useJUnitPlatform()
+}
+
+tasks.named("shadowJar", ShadowJar::class) {
+    mergeServiceFiles()
 }
