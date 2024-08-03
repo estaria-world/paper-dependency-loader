@@ -16,16 +16,10 @@ repositories {
 }
 
 dependencies {
-    api(kotlin("stdlib"))
-
     // paper dependencies
     compileOnly("io.papermc.paper:paper-api:1.21-R0.1-SNAPSHOT")
 }
 
-tasks.test {
-    useJUnitPlatform()
-}
-
-tasks.named("shadowJar", ShadowJar::class) {
+tasks.named<ShadowJar>("shadowJar") {
     mergeServiceFiles()
 }
