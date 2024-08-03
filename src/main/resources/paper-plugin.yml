@@ -1,0 +1,5 @@
+name: paper-dependency-loader
+version: '1.0.1'
+main: world.estaria.paper.dependency.loader.PaperPlugin
+api-version: '1.21'
+loader: world.estaria.paper.dependency.loader.DependencyPluginLoader
